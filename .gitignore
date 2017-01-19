@@ -2,9 +2,12 @@
 *_solved.mn
 **/tests
 *_ignore.*
+*_Report.pdf
 
 model-previous/*.gz
 model-previous/*.zip
+
+Perfil_Dipolo_Anel.xlsx
 
 *.pxp
 
