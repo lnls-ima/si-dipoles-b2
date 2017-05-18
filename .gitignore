@@ -19,6 +19,7 @@ model-previous/*.zip
 # Tests and temporary files
 **/tests
 *_ignore.*
+rotation.txt
 
 # Reports
 *_Report.pdf
