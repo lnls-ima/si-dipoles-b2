@@ -1,0 +1,15 @@
+--- fieldmap ---
+timestamp:                          2017-05-10_16-20-20
+filename:                           2017-05-06_B2_Complete_Model_X=-63_27mm_Z=-1000_1000mm_FAC.txt
+magnet_label:                       B2
+magnet_length:                      1216.54 mm
+main_coil_current:                  394.1 A
+main_coil_NI:                       9458.4 A
+magnetic_gap:                       39.0 mm
+control_gap:                        None mm
+ry_grid:                            1 point in [0.0,0.0] mm (step of 0.000000 mm)
+rx_grid:                            91 points in [-63.0,27.0] mm (step of 1.000000 mm)
+rz_grid:                            2001 points in [-1000.0,1000.0] mm (step of 1.000000 mm)
+by@(all)(axis):                     (min:-0.84250 max:-0.00031) (min:-0.62584 max:-0.00033) Tesla
+bx@(all)(axis):                     (min:-0.00000 max:+0.00000) (min:-0.00000 max:+0.00000) Tesla
+bz@(all)(axis):                     (min:-0.00029 max:+0.00019) (min:-0.00000 max:+0.00000) Tesla
