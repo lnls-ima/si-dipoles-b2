@@ -2,7 +2,7 @@
 # | fac-fma-multipoles.py input_file             |
 # | Accelerator Physics LNLS                     |
 # |                                              |
-# | Date: 2018-12-13-11:24:37.834                |
+# | Date: 2018-12-14-14:56:35.374                |
 # | generated with 'fieldmaptrack.hallsensor.py' |
 #  ==============================================
 
@@ -34,7 +34,7 @@ multipoles_perpendicular_grid           _np.linspace(-12,12,65)  # grid of point
 # After multipole coeffs are calculated, their normalized strengths
 # at perp. position r0 are calculated (as defined in tracy)
 
-multipoles_r0                     17.5  # [mm] horizontal position at which polynomial fields are calculated relative to the principal multipole
+multipoles_r0                     12  # [mm] horizontal position at which polynomial fields are calculated relative to the principal multipole
 normalization_monomial            0
 normalization_is_skew             False
 
@@ -43,5 +43,5 @@ normalization_is_skew             False
 # The parameter below lists the monomials which are supposed to 
 # define the main field. The rest makes up for the residual field
 
-normal_multipoles_main_monomials        (0, 1, 2)
+normal_multipoles_main_monomials        (0, 1)
 skew_multipoles_main_monomials          ()
