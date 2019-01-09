@@ -3,7 +3,7 @@ Sirius B2 Dipoles Integrated Principal Multipoles
 
 As calculated in Zpositive-half Runge-Kutta trajectory,
 defined by measured fieldmap with magnet excitated with current of 381.7A,
-corresponding to nominal particle energy of 2.852 GeV.
+corresponding to nominal particle energy of 2.8426315121951222 GeV.
 
   Dipole   |  Angle [°]   |  Dint [T.m]  |   Gint [T]   |  Sint [T/m]  |
            |              |              |              |              |
