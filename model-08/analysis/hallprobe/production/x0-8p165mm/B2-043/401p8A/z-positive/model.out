@@ -1,5 +1,3 @@
-::  4.776430403501177
-::  4.77643040350118
 --- model polynom_b (rz > 0). units: [m] for length, [rad] for angle and [m^(n-1)] for polynom_b ---
  len[m]    angle[deg]   PolyB(n=0)     PolyB(n=1)     PolyB(n=2)     PolyB(n=3)     PolyB(n=4)     PolyB(n=5)     PolyB(n=6)    
  0.1250 ,  +0.40617 ,  +0.0000e+00 ,  -7.7459e-01 ,  +3.4777e-02 ,  -1.3162e+00 ,  -2.2423e+02 ,  +2.9646e+04 ,  +1.9197e+06 , 
