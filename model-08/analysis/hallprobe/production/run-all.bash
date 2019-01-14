@@ -5,7 +5,7 @@ cmd=$2
 current=$3
 side=$4
 
-folder=x0-8p165mm
+folder=x0-8p153mm
 
 function f1 {
   cmd=$1
@@ -82,7 +82,7 @@ $func $cmd $current $side
 # ./run-all.bash f2 run 381p7A z-negative
 # ./run-all.bash f3 run 381p7A z-negative
 # ./run-all.bash f4 run 381p7A z-negative
-# 
+#
 # ./run-all.bash f1 run 401p8A z-positive
 # ./run-all.bash f2 run 401p8A z-positive
 # ./run-all.bash f3 run 401p8A z-positive
@@ -91,7 +91,7 @@ $func $cmd $current $side
 # ./run-all.bash f2 run 401p8A z-negative
 # ./run-all.bash f3 run 401p8A z-negative
 # ./run-all.bash f4 run 401p8A z-negative
-# 
+#
 # ./run-all.bash f1 run 421p9A z-positive
 # ./run-all.bash f2 run 421p9A z-positive
 # ./run-all.bash f3 run 421p9A z-positive

@@ -1,0 +1,14 @@
+--- fieldmap ---
+timestamp:                          2018-11-21_23-13-26
+filename:                           2018-11-21_B2-016_Hall_X=-64_28mm_Z=-1200_1200mm_Imc=381.7A_ID=576.dat
+magnet_label:                       B2-016
+magnet_length:                      1216.7 mm
+main_coil_current:                  381.7 A
+magnetic_gap:                       39.0 mm
+control_gap:                        None mm
+ry_grid:                            1 point in [0.0,0.0] mm (step of 0.000000 mm)
+rx_grid:                            24 points in [-64.0,28.0] mm (step of 4.000000 mm)
+rz_grid:                            1201 points in [-1200.0,1200.0] mm (step of 2.000000 mm)
+by@(all)(axis):                     (min:-0.80212 max:+0.00001) (min:-0.59663 max:+0.00001) Tesla
+bx@(all)(axis):                     (min:-0.04224 max:+0.00019) (min:-0.03116 max:+0.00011) Tesla
+bz@(all)(axis):                     (min:-0.00037 max:+0.00914) (min:-0.00031 max:+0.00614) Tesla

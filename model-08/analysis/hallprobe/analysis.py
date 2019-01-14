@@ -23,6 +23,13 @@ c2e_B2 = {
     '421.9A': 3.137303658536585,
 }
 
+# media dos imas, apos procura com x0=8.153mm
+c2e_B2 = {
+    '381.7A' : 2.84308943902439,
+    '401.8A' : 2.990614,
+    '421.9A' : 3.137824707317073,
+}
+
 
 def search_for_deflection_angle_B2():
     """."""
@@ -453,10 +460,11 @@ def save_readme_files():
 def run():
     """."""
     # hall.search_for_deflection_angle('B2')
-    # hall.plot_results_search_deflection_angle('search-energies-shifted-x0.txt')
-    # hall.generate_inputs(c2e_B2, '8p165', dipole_type='B2')
-    hall.load_analysis_result('x0-8p165mm/', 'B2', ('dangle', 'refrx', 'quad'))
-    # hall.save_readme_files(c2e_B2, 'x0-8p165mm/', 'B2')
+    # hall.plot_results_search_deflection_angle('search-energies-shifted-x0-2.txt')
+    # hall.generate_inputs(c2e_B2, '8p153', dipole_type='B2')
+    hall.load_analysis_result('x0-8p153mm/', 'B2', ('dangle', 'refrx', 'quad'))
+    # hall.save_readme_files(c2e_B2, 'x0-8p153mm/', 'B2')
+    # hall.calc_average_angles('x0-8p153mm/', 'B2')
 
     # generate_inputs_B2()
     # seach_for_reference_point_B2()
