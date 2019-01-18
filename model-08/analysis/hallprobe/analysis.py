@@ -6,6 +6,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from fieldmaptrack import hallprobe as hall
 import mathphys as mp
+import math
 
 
 _fmap_files = None
@@ -411,50 +412,7 @@ def generate_inputs_reference_point_B2():
         print(path, f)
 
 
-def save_readme_files():
-    """."""
-    header = (
-        'Sirius B2 Dipoles Integrated Principal Multipoles',
-        '=================================================',
-        '',
-        'As calculated in SIDE-half Runge-Kutta trajectory,',
-        ('defined by measured fieldmap with magnet excitated with current '
-         'of CURRENT,'),
-        'corresponding to nominal particle energy of ENERGY GeV.',
-        '',
-        ('  Dipole   |  Angle [°]   |  Dint [T.m]  |   Gint [T]   |  Sint '
-         '[T/m]  |'),
-        ('           |              |              |              '
-         '|              |'))
-    sfmt = ('|{0:^10s}| {1:^+12.5f} | {2:^+12.5f} | {3:^+12.5f} '
-            '| {4:^+12.5f} |\n')
 
-    # magnets, currents, data = load_analysis_result_x0_7p92mm(False)
-    magnets, currents, data = load_analysis_result('x0-8p165mm/', False)
-    for current in currents:
-        for side in ('Zpositive', 'Znegative'):
-            with open('README-' + current + '-' + side + '.md', 'w') as fp:
-                # header
-                for line in header:
-                    line = line.replace('CURRENT', current)
-                    line = line.replace('SIDE', side)
-                    line = line.replace('ENERGY', str(c2e_B2[current]))
-                    fp.write(line + '\n')
-                # data
-                for i in range(len(magnets)):
-                    magnet = magnets[i]
-                    angle = data['angleP'][current][i] if \
-                        side == 'Zpositive' else data['angleN'][current][i]
-                    dip = data['dip_normalP'][current][i] if \
-                        side == 'Zpositive' else \
-                        data['dip_normalN'][current][i]
-                    quad = data['quad_normalP'][current][i] if \
-                        side == 'Zpositive' else \
-                        data['quad_normalN'][current][i]
-                    sext = data['sext_normalP'][current][i] if \
-                        side == 'Zpositive' else \
-                        data['sext_normalN'][current][i]
-                    fp.write(sfmt.format(magnet, angle, dip, quad, sext))
 
 
 def run():
@@ -462,9 +420,15 @@ def run():
     # hall.search_for_deflection_angle('B2')
     # hall.plot_results_search_deflection_angle('search-energies-shifted-x0-2.txt')
     # hall.generate_inputs(c2e_B2, '8p153', dipole_type='B2')
-    hall.load_analysis_result('x0-8p153mm/', 'B2', ('dangle', 'refrx', 'quad'))
+    # hall.load_analysis_result('x0-8p153mm/', 'B2', ('dangle', 'refrx', 'quad'))
     # hall.save_readme_files(c2e_B2, 'x0-8p153mm/', 'B2')
     # hall.calc_average_angles('x0-8p153mm/', 'B2')
+    # hall.plot_trajectories('x0-8p153mm/', 'B2')
+
+    # hall.plot_reference_trajectory('B2')
+    hall.save_reference_trajectory('B2')
+
+
 
     # generate_inputs_B2()
     # seach_for_reference_point_B2()
