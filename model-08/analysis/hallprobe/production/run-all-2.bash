@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
 
-func=$1
-cmd=$2
-current=$3
-side=$4
-
 folder=x0-8p153mm-reftraj
 
 function create_pos {
@@ -187,16 +182,16 @@ function replace_neg {
   sed -i 's/traj_load_filename            None/traj_load_filename "trajectory-b2-neg.in"/g' ./$folder/B2-046/$current/z-negative/trajectory.in
 }
 
-replace_pos 381p7A
-replace_neg 381p7A
-replace_pos 401p8A
-replace_neg 401p8A
-replace_pos 421p9A
-replace_neg 421p9A
+# replace_pos 381p7A
+# replace_neg 381p7A
+# replace_pos 401p8A
+# replace_neg 401p8A
+# replace_pos 421p9A
+# replace_neg 421p9A
 
-# create_pos 381p7A
-# create_pos 401p8A
-# create_pos 421p9A
-# create_neg 381p7A
-# create_neg 401p8A
-# create_neg 421p9A
+create_pos 381p7A
+create_pos 401p8A
+create_pos 421p9A
+create_neg 381p7A
+create_neg 401p8A
+create_neg 421p9A

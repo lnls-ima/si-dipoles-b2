@@ -412,23 +412,129 @@ def generate_inputs_reference_point_B2():
         print(path, f)
 
 
+def load_trajectory_file():
 
+    folder = ('/home/fac_files/lnls-ima/si-dipoles-b2/model-08/analysis/'
+              'hallprobe/production/x0-8p153mm-reftraj/B2-002/401p8A/'
+              'z-positive/')
+
+    # trajectory
+    with open(folder + 'trajectory.txt', 'r') as fp:
+        text = fp.readlines()
+    s, x, z = [], [], []
+    for line in text:
+        if '#' in line or not line:
+            continue
+        words = line.split()
+        s.append(float(words[0]))
+        x.append(float(words[1]))
+        z.append(float(words[3]))
+
+    # multipoles
+    with open(folder + 'multipoles.txt', 'r') as fp:
+        text = fp.readlines()
+    s2, dip, quad = [], [], []
+    for line in text:
+        if '#' in line or not line:
+            continue
+        words = line.split()
+        s2.append(float(words[0]))
+        dip.append(float(words[1]))
+        quad.append(float(words[2]))
+
+    return np.array(s), np.array(x), np.array(z), np.array(s2), np.array(dip), np.array(quad)
 
 
 def run():
     """."""
-    # hall.search_for_deflection_angle('B2')
+    hall.search_for_deflection_angle('B2')
+    return
     # hall.plot_results_search_deflection_angle('search-energies-shifted-x0-2.txt')
     # hall.generate_inputs(c2e_B2, '8p153', dipole_type='B2')
     # hall.load_analysis_result('x0-8p153mm-reftraj/', 'B2', ('dangle', 'refrx', 'quad'))
-    hall.save_readme_files(c2e_B2, 'x0-8p153mm-reftraj/', 'B2')
+    # hall.save_readme_files(c2e_B2, 'x0-8p153mm-reftraj/', 'B2')
     # hall.calc_average_angles('x0-8p153mm/', 'B2')
     # hall.plot_trajectories('x0-8p153mm/', 'B2')
 
     # hall.plot_reference_trajectory('B2')
-    # hall.save_reference_trajectory('B2')
+    # hall.save_reference_trajectory('B2', factor=1.0, correct=False)
+    # return
 
+    # folder = ('/home/fac_files/lnls-ima/si-dipoles-b2/model-08/analysis/'
+    #           'hallprobe/production/x0-8p153mm-reftraj/B2-002/401p8A/'
+    #           'z-positive/')
+    # # trajectory
+    # with open(folder + 'trajectory.txt', 'r') as fp:
+    #     text = fp.readlines()
+    # s1, x1, z1 = [], [], []
+    # for line in text:
+    #     if '#' in line or not line:
+    #         continue
+    #     words = line.split()
+    #     s1.append(float(words[0]))
+    #     x1.append(float(words[1]))
+    #     z1.append(float(words[3]))
+    #
+    # folder = ('/home/fac_files/lnls-ima/si-dipoles-b2/model-08/analysis/'
+    #           'hallprobe/production/x0-8p153mm-reftraj/B2-002-old/401p8A/'
+    #           'z-positive/')
+    # # trajectory
+    # with open(folder + 'trajectory.txt', 'r') as fp:
+    #     text = fp.readlines()
+    # s2, x2, z2 = [], [], []
+    # for line in text:
+    #     if '#' in line or not line:
+    #         continue
+    #     words = line.split()
+    #     s2.append(float(words[0]))
+    #     x2.append(float(words[1]))
+    #     z2.append(float(words[3]))
+    #
+    # plt.plot(z1, x1)
+    # plt.plot(z2, x2)
+    # plt.show()
+    # return
 
+    # s, x, z, s2, dip, quad = load_trajectory_file()
+    # dx = x[1:]-x[:-1]
+    # dz = z[1:]-z[:-1]
+    # s3 = np.cumsum(np.sqrt(dx**2 + dz**2))
+    # s3 = np.insert(s3, 0, 0)
+    #
+    # v1 = np.trapz(quad, s2)
+    # v3 = np.trapz(quad, s3)
+    # print(100*(v3-v1)/v1)
+    #
+    # # plt.plot(s2, quad)
+    # # plt.plot(s3, quad)
+    # # plt.show()
+    #
+    # quad3 = np.interp(s2, s3, quad)
+    # # plt.plot(s2, quad3 - quad)
+    # plt.plot(s3 - s2)
+    # plt.show()
+    # return
+
+    d = {'381.7A':'b', '401.8A':'r', '421.9A':'g'}
+    # plot quads
+    for current, color in d.items():
+        quad_error1, quad_error2 = hall.load_multipole_error('B2', current, idx=1)
+        plt.plot(quad_error1, color+'-', label=current + ' individual traj')
+        plt.plot(quad_error2, color+'--', label=current + ' average traj')
+    plt.xlabel('Magnet Index')
+    plt.ylabel('Quadrupole Error [%]')
+    plt.legend()
+    plt.show()
+
+    # plot dipolar
+    for current, color in d.items():
+        dip_error1, dip_error2 = hall.load_multipole_error('B2', current, idx=0)
+        plt.plot(dip_error1, color+'-', label=current + ' individual traj')
+        plt.plot(dip_error2, color+'--', label=current + ' average traj')
+    plt.xlabel('Magnet Index')
+    plt.ylabel('Dipolar Error [%]')
+    plt.legend()
+    plt.show()
 
     # generate_inputs_B2()
     # seach_for_reference_point_B2()
@@ -463,5 +569,6 @@ def run():
     # print(e[2])
     # print(np.mean(np.array(e[2])))
     # print()
+
 
 run()
