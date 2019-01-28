@@ -32,25 +32,6 @@ c2e_B2 = {
 }
 
 
-def search_for_deflection_angle_B2():
-    """."""
-    init_energies = [2.852039/1.0032, 3.000021/1.0032, 3.147681/1.0032]  # IMA used values
-
-    magnets = get_magnets_B2()
-    currents = get_currents_B2()
-
-    fstr = 'magnet:{}, current:{} => nr_iter:{:02d}, energy:{:8.6f} GeV'
-    for i in range(len(currents)):
-        curr = currents[i]
-        for magnet in magnets:
-            files = get_fmap_files_B2(magnet, curr)
-            fa = hall.DoubleFMapAnalysis(magnet=magnet, fmap_fname=files[0])
-            fa.traj_init_rx = 7.920 + 0.245
-            fa.energy = init_energies[i]
-            n = fa.search_energy(False)
-            print(fstr.format(magnet, curr, n, fa.energy))
-
-
 def load_search_deflection_angle_file(fname=None):
     """."""
     if fname is None:
@@ -447,11 +428,12 @@ def load_trajectory_file():
 
 def run():
     """."""
-    hall.search_for_deflection_angle('B2')
-    return
+    # hall.search_for_deflection_angle('B2')
+    # return
     # hall.plot_results_search_deflection_angle('search-energies-shifted-x0-2.txt')
     # hall.generate_inputs(c2e_B2, '8p153', dipole_type='B2')
-    # hall.load_analysis_result('x0-8p153mm-reftraj/', 'B2', ('dangle', 'refrx', 'quad'))
+    # hall.load_analysis_result('x0-8p153mm/', 'B2', ('dangle', 'refrx', 'quad'))
+
     # hall.save_readme_files(c2e_B2, 'x0-8p153mm-reftraj/', 'B2')
     # hall.calc_average_angles('x0-8p153mm/', 'B2')
     # hall.plot_trajectories('x0-8p153mm/', 'B2')
