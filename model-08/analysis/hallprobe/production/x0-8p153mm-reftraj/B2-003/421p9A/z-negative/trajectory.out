@@ -7,9 +7,9 @@ final_vertical_angle:               +0.0000e+00 deg.
 trajectory_length:                  -1200.4 mm
 trajectory_nrpts:                   12005
 trajectory_s_step:                  -0.1 mm
-max_abs_bx@trajectory:              -0.031797 Tesla at (s,rx,ry,rz) = (-261.599999999991,6.21033891614206,0.0,-261.590378517878) mm
-max_abs_by@trajectory:              -0.597471 Tesla at (s,rx,ry,rz) = (-241.299999999991,6.50029862569136,0.0,-241.292450605981) mm
-max_abs_bz@trajectory:              +0.006177 Tesla at (s,rx,ry,rz) = (-189.099999999994,7.1382913431371,0.0,-189.09636864859) mm
-rx position of reference point:     +19.427818 mm
+max_abs_bx@trajectory:              -0.031797 Tesla at (s,rx,ry,rz) = (-261.599999999991,6.21035145708447,0.0,-261.590378625779) mm
+max_abs_by@trajectory:              -0.597471 Tesla at (s,rx,ry,rz) = (-241.299999999991,6.50030997655631,0.0,-241.292450696874) mm
+max_abs_bz@trajectory:              +0.006177 Tesla at (s,rx,ry,rz) = (-189.099999999994,7.1382999536072,0.0,-189.096368705837) mm
+rx position of reference point:     +19.427847 mm
 initial rx position of trajectory:  +8.153000 mm
-sagitta:                            10.52035296140979 mm
+sagitta:                            10.52032159134772 mm
