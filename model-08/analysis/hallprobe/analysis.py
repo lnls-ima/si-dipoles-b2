@@ -6,7 +6,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from fieldmaptrack import hallprobe as hall
 import mathphys as mp
-import math
+import math as _math
 
 
 _fmap_files = None
@@ -433,7 +433,7 @@ def run():
     # hall.plot_results_search_deflection_angle('search-energies-shifted-x0-2.txt')
     # hall.generate_inputs(c2e_B2, '8p153', dipole_type='B2')
     # hall.load_analysis_result('x0-8p153mm/', 'B2', ('dangle', 'refrx', 'quad'))
-
+    # return
     # hall.save_readme_files(c2e_B2, 'x0-8p153mm-reftraj/', 'B2')
     # hall.calc_average_angles('x0-8p153mm/', 'B2')
     # hall.plot_trajectories('x0-8p153mm/', 'B2')
@@ -441,6 +441,12 @@ def run():
     # hall.plot_reference_trajectory('B2')
     # hall.save_reference_trajectory('B2', factor=1.0, correct=False)
     # return
+
+    # hall.run_analysis_reftraj_models('B2', '381p7A')
+    # hall.run_analysis_reftraj_models('B2', '401p8A')
+    # hall.run_analysis_reftraj_models('B2', '421p9A')
+    hall.print_average_model('B2', '401p8A')
+    return
 
     # folder = ('/home/fac_files/lnls-ima/si-dipoles-b2/model-08/analysis/'
     #           'hallprobe/production/x0-8p153mm-reftraj/B2-002/401p8A/'
